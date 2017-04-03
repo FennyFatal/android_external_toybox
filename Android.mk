@@ -295,7 +295,7 @@ toybox_links:
 	@echo "Generate Toybox links:" $$($(TOYBOX_INSTLIST))
 	@mkdir -p $(TARGET_OUT_EXECUTABLES) $(TARGET_OUT_OPTIONAL_EXECUTABLES)
 	$(hide) $(TOYBOX_INSTLIST) | grep -vFx -f <(tr ' ' '\n' <<< '$(TOYS_FOR_XBIN) $(TOYS_WITHOUT_LINKS)') | xargs -I'{}' ln -sf toybox '$(TARGET_OUT_EXECUTABLES)/{}'
-	$(hide) tr ' ' '\n' <<< '$(TOYS_FOR_XBIN)' | xargs -I'{}' ln -sf ../bin/toybox '$(TARGET_OUT_OPTIONAL_EXECUTABLES)/{}'
+	$(hide) tr ' ' '\n' <<< '$(TOYS_FOR_XBIN)' | xargs -I'{}' ln -sf /system/bin/toybox '$(TARGET_OUT_OPTIONAL_EXECUTABLES)/{}'
 
 
 # This is used by the recovery system
